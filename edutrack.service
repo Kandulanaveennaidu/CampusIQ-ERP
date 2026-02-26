@@ -1,0 +1,20 @@
+[Unit]
+Description=CampusIQ School Management System
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/campusiq
+EnvironmentFile=/home/ubuntu/campusiq/.env.local
+ExecStart=/usr/bin/node /home/ubuntu/campusiq/server.js
+Restart=on-failure
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=campusiq
+Environment=NODE_ENV=production
+Environment=PORT=3000
+
+[Install]
+WantedBy=multi-user.target
