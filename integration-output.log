@@ -1,0 +1,352 @@
+
+
+  EduTrack  COMPREHENSIVE MODULE INTEGRATION TEST
+  2026-02-17T17:36:40.097Z
+
+
+
+  1. AUTHENTICATION
+
+   Registering test school...
+    Register school
+    Login and get session token
+    Verify session
+    Reject invalid registration
+   Auth setup complete.
+
+
+  3. STUDENTS
+
+    Create student
+    List students
+    Get single student
+    Update student
+    Delete student
+    Reject invalid student
+
+
+  4. TEACHERS
+
+    Create teacher
+    List teachers
+    Update teacher
+    Reject invalid teacher (missing email/password)
+
+
+  5. ATTENDANCE
+
+    Mark attendance
+    GET attendance history
+    Reject invalid attendance
+
+
+  6. QR ATTENDANCE
+
+    Generate QR token
+    List QR tokens
+
+
+  7. SUBJECT ATTENDANCE
+
+    GET subject attendance
+
+
+  8. TEACHER ATTENDANCE
+
+    Mark teacher attendance
+    GET teacher attendance
+
+
+  9. DEPARTMENTS
+
+    Create department
+    List departments
+    Update department
+    Delete department
+    Reject invalid department
+
+
+  10. SUBJECTS
+
+    Create subject
+    List subjects
+
+
+  11. ACADEMIC YEARS
+
+    Create academic year
+    List academic years
+
+
+  12. SEMESTERS
+
+    Create semester
+    List semesters
+
+
+  13. PROMOTIONS
+
+    List promotions
+
+
+  14. TIMETABLE
+
+    Create timetable entry
+    List timetable
+    Update timetable entry
+    Delete timetable entry
+
+
+  15. EXAMS
+
+    Create exam
+    List exams
+    Update exam
+    Reject invalid exam
+
+
+  16. ASSIGNMENTS
+
+    Create assignment
+    List assignments
+
+
+  17. ONLINE EXAMS
+
+    Create online exam
+    List online exams
+
+
+  18. EVENTS
+
+    Create event
+    List events
+    Filter events by month
+    Reject invalid event
+    Reject end before start
+
+
+  19. MESSAGES
+
+    List conversations
+    Reject empty participants
+
+
+  20. CIRCULARS
+
+    Create circular
+    List circulars with pagination
+    Reject invalid circular
+
+
+  43. NOTIFICATIONS
+
+    Create notification
+    List notifications
+
+
+  44. BULK MESSAGES
+
+    GET bulk messages
+
+
+  21. FEES
+
+    Create fee structure
+    List fee structures
+
+
+  22. SALARY
+
+    Generate salary
+    List salary records
+
+
+  23. LEAVE MANAGEMENT
+
+    List leave requests
+
+
+  24. HOLIDAYS
+
+    Create holiday
+    List holidays
+    Update holiday
+    Delete holiday
+    Duplicate holiday handled
+
+
+  25. ROOMS
+
+    Create room
+    List rooms
+
+
+  26. TRANSPORT
+
+    Create transport
+    List transport
+
+
+  27. LIBRARY
+
+    Create library book
+    List library books
+
+
+  28. HOSTEL
+
+    Create hostel
+    List hostels
+
+
+  29. VISITORS
+
+    Create visitor
+    List visitors
+
+
+  30. FACULTY WORKLOAD
+
+    Create faculty workload
+    List faculty workloads
+
+
+  35. ALUMNI
+
+    Create alumni
+    List alumni
+
+
+  2. DASHBOARD
+
+    GET /api/reports/dashboard
+
+
+  31. REPORTS
+
+    Dashboard report
+    Attendance report
+    Fees report
+    Exams report
+
+
+  32. AI INSIGHTS
+
+    GET AI insights
+
+
+  38. STUDENT PERFORMANCE
+
+    GET student performance
+
+
+  39. TEACHER EVALUATION
+
+    List teacher evaluations
+
+
+  45. USER MANAGEMENT
+
+    List users
+    Create user
+
+
+  46. BACKUP
+
+    List backups
+
+
+  47. BRANDING
+
+    GET branding
+
+
+  48. SETTINGS
+
+    GET settings
+    Update settings
+
+
+  49. BILLING
+
+    GET billing info
+
+
+  52. AUDIT LOGS
+
+    GET audit logs
+
+
+  36. ACADEMIC CALENDAR
+
+    Create academic calendar event
+    List academic calendar
+
+
+  37. STAFF LEAVE CALENDAR
+
+    GET staff leave calendar
+
+
+  40. DOCUMENTS
+
+    List documents
+
+
+  41. STUDENT DIARY
+
+    Create diary entry
+    List diary entries
+
+
+  42. EMERGENCY
+
+    Create emergency alert
+    List emergency alerts
+
+
+  34. INVENTORY
+
+    Create inventory item
+    List inventory
+
+
+  33. TIMETABLE GENERATOR
+
+    GET timetable generator
+
+
+  50. PARENT PORTAL
+
+    GET parent portal data
+
+
+  51. PROFILE
+
+    GET profile
+    Update profile
+
+
+  53. HEALTH CHECK
+
+    GET health endpoint
+
+
+  TEST SUMMARY
+
+  Total Tests: 114
+   Passed:   110
+   Failed:   4
+  Pass Rate:   96.5%
+
+   FAILED TESTS 
+  1. Create alumni
+  2. GET /api/reports/dashboard
+  3. Create diary entry
+  4. Create inventory item
+
+
+    SOME TESTS FAILED
+
+

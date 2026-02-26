@@ -1,0 +1,25 @@
+# Pre-built Dockerfile: DO NOT exclude node_modules and .next
+# They are built on the host and copied into Docker
+.git
+.gitignore
+*.md
+.env*.local
+.env.local
+coverage
+__tests__
+tests
+jest.config.js
+jest.setup.ts
+jest.polyfills.js
+jest-output.txt
+jest-err.txt
+*.test.ts
+*.test.tsx
+*.test.js
+.DS_Store
+npm-debug.log*
+.vscode
+trackers
+email-templates
+user-dump.json
+seed-mongodb.js
