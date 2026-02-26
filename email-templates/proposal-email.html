@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>CampusIQ — Proposal for {{SCHOOL_NAME}}</title>
+  </head>
+  <body
+    style="
+      font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #1a1a2e;
+      line-height: 1.6;
+    "
+  >
+    <!-- HEADER -->
+    <div
+      style="
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: 3px solid #6366f1;
+      "
+    >
+      <h1 style="color: #6366f1; margin: 0; font-size: 24px">
+        CampusIQ — Proposal
+      </h1>
+      <p style="color: #64748b; margin: 5px 0 0; font-size: 14px">
+        Prepared for {{SCHOOL_NAME}}
+      </p>
+    </div>
+
+    <!-- BODY -->
+    <div style="padding: 30px 0">
+      <p>Dear <strong>{{PRINCIPAL_NAME}}</strong>,</p>
+
+      <p>
+        Following our demo on <strong>{{DEMO_DATE}}</strong>, I'm pleased to
+        share a tailored proposal for <strong>{{SCHOOL_NAME}}</strong>.
+      </p>
+
+      <!-- RECOMMENDED PLAN -->
+      <div
+        style="
+          background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+          border-radius: 12px;
+          padding: 25px;
+          margin: 20px 0;
+          color: white;
+        "
+      >
+        <h2 style="margin: 0 0 5px; font-size: 22px">
+          Recommended: {{PLAN_NAME}} Plan
+        </h2>
+        <p style="margin: 0 0 15px; opacity: 0.9">
+          For up to {{MAX_STUDENTS}} students
+        </p>
+
+        <div
+          style="
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+          "
+        >
+          <table style="width: 100%; color: white">
+            <tr>
+              <td style="padding: 5px 0">Monthly Price:</td>
+              <td style="padding: 5px 0; text-align: right; font-size: 20px">
+                <strong>₹{{MONTHLY_PRICE}}/month</strong>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 5px 0">Annual Price:</td>
+              <td style="padding: 5px 0; text-align: right; font-size: 20px">
+                <strong>₹{{ANNUAL_PRICE}}/year</strong>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 5px 0">Annual Savings:</td>
+              <td style="padding: 5px 0; text-align: right; color: #fde047">
+                <strong>Save 17% (₹{{SAVINGS}})</strong>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <p style="margin: 0; opacity: 0.9; font-size: 14px">
+          🎁 First-year special: <strong>20% off</strong> with code
+          <strong>EARLY20</strong>
+        </p>
+      </div>
+
+      <!-- WHAT'S INCLUDED -->
+      <h3 style="color: #1e293b">What's Included:</h3>
+      <table style="width: 100%; border-collapse: collapse; margin: 10px 0">
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #e2e8f0">
+            <span style="color: #22c55e">✓</span> Unlimited teachers & admin
+            accounts
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #e2e8f0">
+            <span style="color: #22c55e">✓</span> QR code + manual attendance
+            marking
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #e2e8f0">
+            <span style="color: #22c55e">✓</span> Real-time parent notifications
+            (email)
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #e2e8f0">
+            <span style="color: #22c55e">✓</span> Monthly attendance reports &
+            analytics
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #e2e8f0">
+            <span style="color: #22c55e">✓</span> Leave management system
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #e2e8f0">
+            <span style="color: #22c55e">✓</span> Emergency alert broadcasts
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #e2e8f0">
+            <span style="color: #22c55e">✓</span> Room booking & visitor
+            management
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #e2e8f0">
+            <span style="color: #22c55e">✓</span> Dedicated onboarding support
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px">
+            <span style="color: #22c55e">✓</span> Email + WhatsApp support
+            (Mon-Sat)
+          </td>
+        </tr>
+      </table>
+
+      <!-- ONBOARDING TIMELINE -->
+      <h3 style="color: #1e293b; margin-top: 25px">Onboarding Timeline:</h3>
+      <div
+        style="
+          background: #f8fafc;
+          border-radius: 8px;
+          padding: 20px;
+          margin: 10px 0;
+        "
+      >
+        <p style="margin: 0">
+          <strong>Day 1-2:</strong> Account setup + student data upload
+        </p>
+        <p style="margin: 8px 0">
+          <strong>Day 3-5:</strong> Admin & teacher training sessions
+        </p>
+        <p style="margin: 8px 0">
+          <strong>Day 5-7:</strong> Pilot week (parallel with paper)
+        </p>
+        <p style="margin: 0"><strong>Day 7+:</strong> Full go-live!</p>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; margin: 30px 0">
+        <a
+          href="{{ACCEPT_LINK}}"
+          style="
+            display: inline-block;
+            background: #6366f1;
+            color: white;
+            text-decoration: none;
+            padding: 14px 40px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+          "
+          >Accept & Start Trial</a
+        >
+        <p style="color: #64748b; font-size: 13px; margin-top: 10px">
+          30-day free trial included. No payment until you're satisfied.
+        </p>
+      </div>
+
+      <p>
+        I'd be happy to discuss any questions or customizations. Just reply to
+        this email or call me directly.
+      </p>
+
+      <p style="margin-top: 30px">
+        Best regards,<br />
+        <strong>{{SENDER_NAME}}</strong><br />
+        <span style="color: #64748b">{{SENDER_TITLE}}, CampusIQ</span><br />
+        <span style="color: #64748b"
+          >📞 {{SENDER_PHONE}} | ✉ {{SENDER_EMAIL}}</span
+        >
+      </p>
+    </div>
+
+    <!-- FOOTER -->
+    <div
+      style="
+        border-top: 1px solid #e2e8f0;
+        padding: 20px 0;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 12px;
+      "
+    >
+      <p>CampusIQ — Attendance Made Intelligent | © 2026</p>
+    </div>
+  </body>
+</html>

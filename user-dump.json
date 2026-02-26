@@ -1,0 +1,47 @@
+[
+  {
+    "email": "viloham701@desiys.com",
+    "role": "admin",
+    "isActive": true,
+    "emailVerified": false,
+    "failedLoginAttempts": 0,
+    "lockedUntil": null,
+    "school": "698b4bfea788a097349afd61"
+  },
+  {
+    "email": "wedawoc821@flemist.com",
+    "role": "parent",
+    "isActive": true,
+    "emailVerified": false,
+    "failedLoginAttempts": 0,
+    "lockedUntil": null,
+    "school": "698a19fbf0786c02e96b2fd6"
+  },
+  {
+    "email": "celan47269@flemist.com",
+    "role": "parent",
+    "isActive": true,
+    "emailVerified": false,
+    "failedLoginAttempts": 0,
+    "lockedUntil": null,
+    "school": "698a19fbf0786c02e96b2fd6"
+  },
+  {
+    "email": "jejadom880@desiys.com",
+    "role": "teacher",
+    "isActive": false,
+    "emailVerified": false,
+    "failedLoginAttempts": 0,
+    "lockedUntil": null,
+    "school": "698a19fbf0786c02e96b2fd6"
+  },
+  {
+    "email": "naveen.k@vitelglobal.com",
+    "role": "admin",
+    "isActive": true,
+    "emailVerified": false,
+    "failedLoginAttempts": 0,
+    "lockedUntil": null,
+    "school": "698a19fbf0786c02e96b2fd6"
+  }
+]
