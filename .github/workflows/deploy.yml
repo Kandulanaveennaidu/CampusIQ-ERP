@@ -1,0 +1,77 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# CampusIQ — CI/CD Pipeline (Direct Deployment — No Docker)
+# ─────────────────────────────────────────────────────────────────────────────
+# On every push to 'master':
+#   1. SSH into EC2
+#   2. Pull latest code from GitHub
+#   3. Install dependencies & build
+#   4. Restart the systemd service
+#
+# Required GitHub Secrets (Settings → Secrets → Actions):
+#   EC2_HOST          — Your EC2 public IP (e.g., 44.192.75.16)
+#   EC2_USER          — SSH user (usually 'ubuntu')
+#   EC2_SSH_KEY       — Private SSH key (PEM) for EC2 access
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Deploy CampusIQ to EC2
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch: # Allow manual trigger from GitHub UI
+
+jobs:
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script_stop: true
+          script: |
+            set -e
+            echo "═══════════════════════════════════════════"
+            echo "  Deploying CampusIQ to EC2..."
+            echo "═══════════════════════════════════════════"
+
+            APP_DIR="/home/ubuntu/campusiq"
+            cd "$APP_DIR"
+
+            # Pull latest code
+            echo "[1/4] Pulling latest code..."
+            git fetch origin master
+            git reset --hard origin/master
+
+            # Install dependencies
+            echo "[2/4] Installing dependencies..."
+            npm install --production=false
+
+            # Build the app
+            echo "[3/4] Building production app..."
+            NODE_OPTIONS="--max_old_space_size=1536" npm run build
+
+            # Restart the service
+            echo "[4/4] Restarting service..."
+            sudo systemctl restart campusiq
+
+            # Verify
+            sleep 5
+            if curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/ | grep -q "200\|301\|302"; then
+              echo ""
+              echo "Deployment successful! App is running."
+            else
+              echo ""
+              echo "Warning: App may still be starting..."
+              sudo journalctl -u campusiq --no-pager -n 20
+            fi
+
+            echo ""
+            echo "═══════════════════════════════════════════"
+            echo "  Deployment complete!"
+            echo "  Time: $(date)"
+            echo "═══════════════════════════════════════════"
