@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Refined light palette — soft blue-gray canvas with professional accents */
+    --background: 220 20% 96%;
+    --foreground: 224 71% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+    --primary: 220 90% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 224 71% 4%;
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 220 14% 92%;
+    --accent-foreground: 224 71% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 89%;
+    --ring: 220 90% 56%;
+    --radius: 0.625rem;
+    --success: 152 69% 40%;
+    --warning: 38 92% 50%;
+    --info: 199 89% 48%;
+
+    /* Sidebar variables — dark sidebar for visual contrast */
+    --sidebar-bg: 224 71% 4%;
+    --sidebar-fg: 220 14% 94%;
+    --sidebar-muted: 220 9% 46%;
+    --sidebar-accent: 220 90% 56%;
+    --sidebar-border: 224 40% 14%;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 225 50% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 225 50% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 220 90% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 224 40% 14%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 224 40% 14%;
+    --muted-foreground: 218 11% 60%;
+    --accent: 224 40% 14%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 224 40% 14%;
+    --input: 224 40% 14%;
+    --ring: 220 90% 56%;
+    --success: 152 69% 40%;
+    --warning: 38 92% 50%;
+    --info: 199 89% 48%;
+
+    --sidebar-bg: 228 60% 3%;
+    --sidebar-fg: 220 14% 94%;
+    --sidebar-muted: 218 11% 50%;
+    --sidebar-accent: 220 90% 56%;
+    --sidebar-border: 224 40% 10%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ─── Gradient Utilities ──────────────────────────────────────── */
+@layer utilities {
+  .bg-gradient-sidebar {
+    background: linear-gradient(180deg, hsl(var(--sidebar-bg)) 0%, hsl(228 55% 8%) 100%);
+  }
+  .dark .bg-gradient-sidebar {
+    background: linear-gradient(180deg, hsl(var(--sidebar-bg)) 0%, hsl(228 60% 6%) 100%);
+  }
+  .bg-gradient-header {
+    background: linear-gradient(90deg, hsl(var(--background)) 0%, hsl(var(--background) / 0.8) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .bg-page-gradient {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -20%, hsl(var(--primary) / 0.05), transparent),
+      linear-gradient(180deg, hsl(220 20% 95%) 0%, hsl(var(--background)) 300px),
+      hsl(var(--background));
+  }
+  .dark .bg-page-gradient {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -20%, hsl(var(--primary) / 0.10), transparent),
+      hsl(var(--background));
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ──── Advanced Landing Page Animations ──── */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounce-subtle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for a polished look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.4);
+}
+
+/* Glass morphism utility */
+.glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: hsl(var(--background) / 0.72);
+}
+
+/* ─── Card Polish ─────────────────────────────────────────────── */
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-hover:hover {
+  box-shadow:
+    0 4px 6px -1px hsl(var(--primary) / 0.06),
+    0 2px 4px -2px hsl(var(--primary) / 0.06);
+  transform: translateY(-1px);
+}
+
+/* ─── Stat card accent bar ────────────────────────────────────── */
+.stat-accent {
+  position: relative;
+  overflow: hidden;
+}
+.stat-accent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--info)));
+  border-radius: 9999px 9999px 0 0;
+}
+
+/* ──── SweetAlert2 Theme Overrides ──── */
+.swal2-popup {
+  font-family: inherit !important;
+  border-radius: 1rem !important;
+}
+.swal2-timer-progress-bar {
+  background: hsl(var(--primary)) !important;
+}
+.swal2-icon {
+  transform: scale(0.85);
+}
+/* Ensure SweetAlert sits above everything */
+.swal2-container {
+  z-index: 99999 !important;
+}

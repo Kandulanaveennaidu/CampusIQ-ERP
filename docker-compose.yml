@@ -1,0 +1,81 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# CampusIQ — Docker Compose Production Stack
+# ─────────────────────────────────────────────────────────────────────────────
+# Usage:
+#   docker compose up -d          # Start all services
+#   docker compose down            # Stop all services
+#   docker compose logs -f app     # View app logs
+#   docker compose up -d --build   # Rebuild and restart
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+  # ── Next.js Application ──────────────────────────────────────────────────
+  app:
+    image: ghcr.io/kandulanaveennaidu/campusiq-erp:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: campusiq-app
+    restart: unless-stopped
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    env_file:
+      - .env.local
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    ports:
+      - "3000:3000"
+    networks:
+      - campusiq-network
+
+  # ── Nginx Reverse Proxy ──────────────────────────────────────────────────
+  nginx:
+    image: nginx:alpine
+    container_name: campusiq-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./docker/nginx/ssl:/etc/nginx/ssl:ro
+      - certbot-webroot:/var/www/certbot:ro
+      - certbot-certs:/etc/letsencrypt:ro
+    depends_on:
+      - app
+    networks:
+      - campusiq-network
+
+  # ── Certbot (SSL auto-renewal) ──────────────────────────────────────────
+  certbot:
+    image: certbot/certbot
+    container_name: campusiq-certbot
+    volumes:
+      - certbot-webroot:/var/www/certbot
+      - certbot-certs:/etc/letsencrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --webroot -w /var/www/certbot --quiet; sleep 12h & wait $${!}; done'"
+
+  # ── Watchtower (Auto-update containers on new image push) ────────────────
+  watchtower:
+    image: containrrr/watchtower
+    container_name: campusiq-watchtower
+    restart: unless-stopped
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=60
+      - WATCHTOWER_LABEL_ENABLE=false
+      - WATCHTOWER_INCLUDE_STOPPED=false
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: campusiq-app
+
+networks:
+  campusiq-network:
+    driver: bridge
+
+volumes:
+  certbot-webroot:
+  certbot-certs:
